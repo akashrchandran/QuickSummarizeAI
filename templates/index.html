@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Page content start -->
+    <div class="page-wrapper with-navbar with-navbar-fixed-bottom">
+        <div class="sticky-alerts"></div>
+        <!-- Navbar start -->
+        <nav class="navbar h-100 bg-light-lm">
+            <div class="container-lg justify-content-between">
+                <a href="/">
+                    <img src="{{url_for('static', filename='img/logo.png')}}" height="90" alt="Quick Summerize AI" />
+                </a>
+
+                <div class="toggle-track" id="toggler">
+                    <div class="toggle-moon">🌛</div>
+                    <div class="toggle-sun">☀️</div>
+                    <div class="toggle-thumb"></div>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar end -->
+        <div class="content-wrapper mt-20">
+            <div class="container px-20 h-50"></div>
+            <div class="container">
+                <div class="content">
+                    <h2 class="content-title">Summarize any YouTube video:</h2>
+                    <form id="ytform">
+                        <div class="input-group">
+                            <input type="url" autofocus="autofocus" class="form-control form-control-lg"
+                                placeholder="https://www.youtube.com/watch?v=ID" id="ytlink" required/>
+                            <div class="input-group-append">
+                                <button class="btn btn-danger btn-lg ml-5 text-dark-dm shadow-none"
+                                    id="submitbtn">Analyze</button>
+                            </div>
+                        </div>
+                        <div class="form-text content mx-0 my-5">
+                            You can give a link to the youtube video and it will summarize it for you.
+                            <br />
+                            For now it does summarization automaticall but I will add some methods to get control
+                            summary generated.
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="sumcontent">
+                </div>
+            </div>
+
+        </div>
+        <!-- Page content end -->
+
+        <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js"></script>
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>
