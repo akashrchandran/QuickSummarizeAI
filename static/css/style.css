@@ -3,17 +3,17 @@
     border-radius: 30px;
     cursor: pointer;
     display: flex;
-    height: 24px;
+    height: 34px;
     position: relative;
     user-select: none;
-    width: 50px;
+    width: 60px;
   }
   
   .toggle-sun,
   .toggle-moon {
     align-items: center;
     display: flex;
-    font-size: 12px;
+    font-size: 18px;
     padding: 0 4px;
     width: 50%;
   }
@@ -25,12 +25,12 @@
   .toggle-thumb {
     background-color: #fff;
     border-radius: 50%;
-    height: 20px;
+    height: 30px;
     left: 2px;
     position: absolute;
     top: 2px;
     transition: transform .5s cubic-bezier(.23,1,.32,1);
-    width: 20px;
+    width: 30px;
   }
   
   .toggle-track.toggled .toggle-thumb {

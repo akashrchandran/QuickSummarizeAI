@@ -2,7 +2,9 @@ import os
 from youtube_transcript_api import YouTubeTranscriptApi
 import openai
 import json
+import dotenv
 
+dotenv.load_dotenv()
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
