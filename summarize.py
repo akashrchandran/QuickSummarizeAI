@@ -1,13 +1,15 @@
-import os
-from youtube_transcript_api import YouTubeTranscriptApi
-import openai
 import json
+import os
+
 import dotenv
+import openai
+import tiktoken
+from youtube_transcript_api import YouTubeTranscriptApi
 
 dotenv.load_dotenv()
+tokenizer = tiktoken.encoding_for_model("gpt-3.5-turbo")
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
-
 DEV_PROMPT = os.getenv("DEV_PROMPT")
 
 def get_subtitles(video_id):
@@ -27,12 +29,13 @@ def get_summary(captions):
             "role": "user",
             "content": captions
         }
-    ]
+    ],
+    temperature=0.5,
     )
-
-    return completion.choices[0].message.content
+    return completion.choices[0].message.content.strip()
 
 def html_gen(response):
+    print(response)
     summary = json.loads(response)
     htmlString = ''
     for key, value in summary.items():
@@ -50,7 +53,7 @@ def html_gen(response):
 
     return htmlString
 
-def truncate_text_to_word_limit(text, word_limit=3500):
-    words = text.split()
-    truncated_words = words[:word_limit]
-    return ' '.join(truncated_words)
+def truncate_text_to_word_limit(text, word_limit=3700):
+    tokens = tokenizer.encode(text)
+    tokens = tokens[:word_limit]
+    return tokenizer.decode(tokens)

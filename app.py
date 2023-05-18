@@ -14,13 +14,14 @@ def video():
         video_id = request.json.get('video_id')
         subtitles = get_subtitles(video_id)
         summary = get_summary(subtitles)
-        return html_gen(summary), 200
+        return html_gen(summary)
     except NoTranscriptFound:
         return jsonify({'error': True, 'message': 'English captions not available for this video.'}), 404
     except CouldNotRetrieveTranscript as e:
         return jsonify({'error': True, 'message': e.cause.split('\n')[0]}), 500
-    except Exception as e:
-        return jsonify({'error': True, 'message': "Some error occured while proccessing."}), 500
+    # except Exception as e:
+    #     print(e)
+    #     return jsonify({'error': True, 'message': "Some error occured while proccessing."}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
