@@ -6,11 +6,7 @@ import json
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-DEV_PROMPT = '''
-CUSTOM SUMMARY GENERATIONcls
- PROMPT HERE
-'''
-
+DEV_PROMPT = os.getenv("DEV_PROMPT")
 
 def get_subtitles(video_id):
     text = YouTubeTranscriptApi.get_transcript(video_id, languages=['en'])
