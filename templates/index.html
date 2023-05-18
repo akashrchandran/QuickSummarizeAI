@@ -6,10 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}" type="image/x-icon">
+    <title>Quick Summerize AI</title>
+    <meta name="description" content="Revolutionize your YouTube learning experience with our innovative tool that generates summaries and notes for any video. Save time and improve your retention with our concise and easy-to-understand format. Perfect for students, professionals, and anyone looking to enhance their learning. Try it out today!">
+    <meta property="og:title" content="Quick Summerize AI" />
+	<meta property="og:description"
+		content="Revolutionize your YouTube learning experience with our innovative tool that generates summaries and notes for any video. Save time and improve your retention with our concise and easy-to-understand format. Perfect for students, professionals, and anyone looking to enhance their learning. Try it out today!" />
+	<meta property="og:image" content="{{ url_for('static', filename='img/ogimage.png') }}" />
+	<meta property="og:url" content="https://qsumai.akashrchandran.in" />
+	<!-- twitter -->
+	<meta name="twitter:title" content="Quick Summerize AI" />
+	<meta name="twitter:description"
+		content="Revolutionize your YouTube learning experience with our innovative tool that generates summaries and notes for any video. Save time and improve your retention with our concise and easy-to-understand format. Perfect for students, professionals, and anyone looking to enhance their learning. Try it out today!" />
+	<meta name="twitter:url" content="https://qsumai.akashrchandran.in" />
+	<meta name="twitter:card" content="summary" />
     <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <title>Document</title>
 </head>
 
 <body class="with-custom-webkit-scrollbars with-custom-css-scrollbars" data-set-preferred-mode-onload="true">
@@ -47,7 +59,7 @@
                         </div>
                         <div class="form-text content mx-0 my-5">
                             <!-- <br /> -->
-                            You can give a link to the youtube video and it will summarize it for you.
+                            You can give a link to the youtube video and AI will summarize it for you.
                             <br />
                             For now it does summarization automatically but I will add some methods to get control
                             summary generated.
