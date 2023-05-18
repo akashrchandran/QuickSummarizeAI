@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <title>Document</title>
 </head>
 
-<body>
+<body class="with-custom-webkit-scrollbars with-custom-css-scrollbars" data-set-preferred-mode-onload="true">
     <!-- Page content start -->
     <div class="page-wrapper with-navbar with-navbar-fixed-bottom">
         <div class="sticky-alerts"></div>
@@ -41,13 +42,13 @@
                                 placeholder="https://www.youtube.com/watch?v=ID" id="ytlink" required/>
                             <div class="input-group-append">
                                 <button class="btn btn-danger btn-lg ml-5 text-dark-dm shadow-none"
-                                    id="submitbtn">Analyze</button>
+                                    id="submitbtn">Submit</button>
                             </div>
                         </div>
                         <div class="form-text content mx-0 my-5">
                             You can give a link to the youtube video and it will summarize it for you.
                             <br />
-                            For now it does summarization automaticall but I will add some methods to get control
+                            For now it does summarization automatically but I will add some methods to get control
                             summary generated.
                         </div>
                     </form>
@@ -55,7 +56,7 @@
             </div>
 
             <div class="container">
-                <div class="sumcontent">
+                <div class="content" id="summary">
                 </div>
             </div>
 
