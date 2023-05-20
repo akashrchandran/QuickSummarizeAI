@@ -7,10 +7,8 @@ const YTRegex = `^(?:https?://|//)?(?:www\\.|m\\.|.+\\.)?(?:youtu\\.be/|youtube\
 if (halfmoon.getPreferredMode() == "light-mode") {
   // Light mode is preferred
   toggler.classList.remove("toggled");
-} else if (halfmoon.getPreferredMode() == "dark-mode") {
+} else if (halfmoon.getPreferredMode() == "dark-mode" || halfmoon.darkModeOn == 'not-set') {
   // Dark mode is preferred
-  toggler.classList.add("toggled");
-} else if (halfmoon.darkModeOn) {
   toggler.classList.add("toggled");
 }
 
