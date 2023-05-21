@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-from summarize import get_subtitles, get_summary, html_gen
+from summarize import get_subtitles, get_summary
 from youtube_transcript_api._errors import NoTranscriptFound, CouldNotRetrieveTranscript
 
 app = Flask(__name__)
@@ -13,8 +13,7 @@ def video():
     try:
         video_id = request.json.get('video_id')
         subtitles = get_subtitles(video_id)
-        summary = get_summary(subtitles)
-        return html_gen(summary)
+        return get_summary(subtitles)
     except NoTranscriptFound:
         return jsonify({'error': True, 'message': 'English captions not available for this video.'}), 404
     except CouldNotRetrieveTranscript as e:

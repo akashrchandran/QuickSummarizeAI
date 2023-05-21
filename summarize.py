@@ -32,26 +32,7 @@ def get_summary(captions):
     ],
     temperature=0.5,
     )
-    return completion.choices[0].message.content.strip()
-
-def html_gen(response):
-    print(response)
-    summary = json.loads(response)
-    htmlString = ''
-    for key, value in summary.items():
-        htmlString += f'<h3>{key}</h3>'
-        if isinstance(value, list):
-            htmlString += '<ul>'
-            for item in value:
-                if isinstance(item, dict):
-                    htmlString += '<li><strong>' + item['Keyword'] + ': </strong>' + item['Explanation'] + '</li>'
-                else:
-                    htmlString += f'<li>{item}</li>'
-            htmlString += '</ul>'
-        else:
-            htmlString += f'<p>{value}</p>'
-
-    return htmlString
+    return completion.choices[0].message.content
 
 def truncate_text_to_word_limit(text, word_limit=3700):
     tokens = tokenizer.encode(text)
