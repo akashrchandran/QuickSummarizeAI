@@ -22,4 +22,4 @@ def video():
         return jsonify({'error': True, 'message': "Some error occured while proccessing."}), 500
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=False, threaded=True)
