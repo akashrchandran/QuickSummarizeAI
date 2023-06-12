@@ -1,0 +1,29 @@
+{
+    "name": "Quick Summarize AI",
+    "description": "Revolutionize your YouTube learning experience with our innovative tool that generates summaries and notes for any video. Save time and improve your retention with our concise and easy-to-understand format. Perfect for students, professionals, and anyone looking to enhance their learning. Try it out today!",
+    "keywords": [
+        "Youtube",
+        "Summarize",
+        "AI",
+		"Chatgpt",
+		"openai"
+    ],
+    "website": "https://akashrchandran.in",
+    "repository": "https://github.com/akashrchandran/QuickSummarizeAI",
+    "success_url": "/",
+    "env": {
+        "DEV_PROMPT": {
+            "description": "Prompt which should be used for summarization"
+        },
+        "OPENAI_API_KEY": {
+            "description": "OpenAI API key"
+        }
+    },
+    "formation": {
+        "web": {
+            "quantity": 1,
+            "size": "free"
+        }
+    },
+    "image": "heroku/python"
+}
