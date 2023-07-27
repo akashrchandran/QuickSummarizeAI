@@ -8,6 +8,11 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/api/transcript')
+def transcript():
+    video_id = request.args.get('video_id')
+    return get_subtitles(video_id)
+
 @app.post('/api/summary')
 def video():
     try:
