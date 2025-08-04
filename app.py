@@ -24,6 +24,7 @@ def video():
     except CouldNotRetrieveTranscript as e:
         return jsonify({'error': True, 'message': e.cause.split('\n')[0]}), 500
     except Exception as e:
+        print(e)
         return jsonify({'error': True, 'message': "Some error occured while proccessing."}), 500
 
 if __name__ == '__main__':

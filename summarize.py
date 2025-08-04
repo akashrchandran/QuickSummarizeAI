@@ -7,8 +7,10 @@ from youtube_transcript_api import YouTubeTranscriptApi
 
 dotenv.load_dotenv()
 
+youtube_transcript_api = YouTubeTranscriptApi()
+
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-DEV_PROMPT = os.getenv("DEV_PROMPT")
+DEV_PROMPT = os.getenv("SYSTEM_PROMPT")
 
 generation_config = {
     "temperature": 1,
@@ -19,14 +21,14 @@ generation_config = {
 }
 
 model = genai.GenerativeModel(
-    model_name="gemini-1.5-flash-8b",
+    model_name="gemini-2.5-flash-lite",
     generation_config=generation_config,
 )
 
 
 def get_subtitles(video_id):
-    text = YouTubeTranscriptApi.get_transcript(video_id, languages=["en"])
-    return " ".join([dialogue["text"] for dialogue in text])
+    text = youtube_transcript_api.fetch(video_id, languages=["en"])
+    return " ".join([dialogue.text for dialogue in text])
 
 
 def get_summary(captions):
